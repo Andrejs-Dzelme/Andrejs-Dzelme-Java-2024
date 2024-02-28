@@ -15,8 +15,8 @@ public class MainService {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] names = { "Elena", "Thomas", "Hamilton", "Suzie", "Phil", "Matt",
-				"Alex", "Emma", "John", "James", "Jane", "Emily", "Daniel", "Neda", "Aaron",
+		String[] names = { "Andrejs", "Andrejs", "Andrejs", "Suzie", "Phil", "Matt",
+				"Alex", "Emma", "John", "James", "Jane", "Andrejs", "Daniel", "Andrejs", "Aaron",
 				"Kate" };
 		int[] times = { 341, 273, 278, 329, 445, 402, 388, 275, 243, 334, 412, 393,
 				299, 343, 317, 265 };
