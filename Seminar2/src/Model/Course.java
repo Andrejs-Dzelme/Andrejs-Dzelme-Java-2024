@@ -66,7 +66,7 @@ public class Course {
 	
 	//4. toString
 	public String toString() {
-		return cID + ": " + title + ", " + creditPoints + ", pasniedz: " + professor;
+		return cID + ": " + title + ", KP: " + creditPoints + ", pasniedz: " + professor;
 	}
 	
 }
