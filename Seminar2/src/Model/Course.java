@@ -27,8 +27,8 @@ public class Course {
 		cID = counter;
 		counter++;
 	}
-	public void setTitle(String name) {
-		if(name != null && name.matches("[A-Za-z 0-9]+")) {
+	public void setTitle(String title) {
+		if(title != null && title.matches("[A-Za-z 0-9]+")) {
 			this.title = title;
 		}
 		else
