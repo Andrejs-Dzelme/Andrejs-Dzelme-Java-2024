@@ -1,6 +1,7 @@
 package Model;
 
 public class Professor {
+	//1. variables
 	private long pID;
 	private String name;
 	private String surname;
