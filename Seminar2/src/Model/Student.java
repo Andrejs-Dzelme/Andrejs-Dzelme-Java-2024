@@ -2,14 +2,14 @@ package Model;
 
 public class Student {
 	//1. variables
-	private long pID;
+	private long sID;
 	private String name;
 	private String surname;
-	private static long counter = 0;
+	private static long counter = 10000;
 	
 	//2. get and set
-	public long getpID() {
-		return pID;
+	public long getsID() {
+		return sID;
 	}
 	public String getName(){
 		return name;
@@ -18,8 +18,8 @@ public class Student {
 		return surname;
 	}
 	
-	public void setpID() {
-		pID = counter;
+	public void setsID() {
+		sID = counter;
 		counter++;
 	}
 
@@ -40,25 +40,20 @@ public class Student {
 	
 	//3. constructors
 	public Student() {
-		setpID();
+		setsID();
 		setName("Eksistētājs");
 		setSurname("Mūžīgais");
 	}	
 	
-	public Student(String name, String surname, Degree degree) {
-		setpID();
+	public Student(String name, String surname) {
+		setsID();
 		setName(name);
 		setSurname(surname);
 	}
 	
 	//4. toString
 	public String toString() {
-		return pID + ": " + name + " " + surname;
-	}
-	
-	
-	
-	
-	
+		return sID + ": " + name + " " + surname;
+	}	
 	
 }
