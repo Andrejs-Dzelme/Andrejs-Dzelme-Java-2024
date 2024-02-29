@@ -8,8 +8,6 @@ public class Student {
 	private static long counter = 0;
 	
 	//2. get and set
-	
-	//2. get and set
 	public long getpID() {
 		return pID;
 	}
@@ -40,9 +38,23 @@ public class Student {
 			this.surname = surname;
 	}
 	
+	//3. constructors
+	public Student() {
+		setpID();
+		setName("Eksistētājs");
+		setSurname("Mūžīgais");
+	}	
 	
+	public Student(String name, String surname, Degree degree) {
+		setpID();
+		setName(name);
+		setSurname(surname);
+	}
 	
-	
+	//4. toString
+	public String toString() {
+		return pID + ": " + name + " " + surname;
+	}
 	
 	
 	
