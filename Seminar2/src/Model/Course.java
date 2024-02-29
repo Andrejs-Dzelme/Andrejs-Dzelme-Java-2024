@@ -54,7 +54,7 @@ public class Course {
 		setcID();
 		setTitle("Elektroiekārtu elektrobarošana");
 		setCreditPoints(2);
-		setProfessor(professor);
+		setProfessor(new Professor()); //Noklusējuma profesors
 	}	 
 	
 	public Course(String title, int creditPoints, Professor professor) {
