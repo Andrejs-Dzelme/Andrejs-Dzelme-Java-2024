@@ -408,7 +408,7 @@ public class MainService {
         short fours = 0;
         short fives = 0;
         short sixes = 0;
-        int result[] = new int[6];
+        
        
         for (short i = 0; i != flips; i++) {
         	dice[i] = (short)(Math.random()*100);
@@ -426,12 +426,9 @@ public class MainService {
         		else if (noDeci == 6) sixes++;
         	}       	
         }
-        result[0] = ones;
-        result[1] = twos;
-        result[2] = threes;
-        result[3] = fours;
-        result[4] = fives;
-        result[5] = sixes;
+        
+        int result[] = {ones, twos, threes, fours, fives, sixes};
+ 
        
         return result;
 	}
