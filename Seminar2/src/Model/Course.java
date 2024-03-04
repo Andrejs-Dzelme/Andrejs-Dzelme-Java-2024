@@ -28,7 +28,7 @@ public class Course {
 		counter++;
 	}
 	public void setTitle(String title) {
-		if(title != null && title.matches("[A-Za-z 0-9]+")) {
+		if(title != null && title.matches("[A-ZĒŪĪĻĶĢĀŽŠŅ a-zēūīļķāžšņ 0-9]+")) {
 			this.title = title;
 		}
 		else
@@ -66,7 +66,7 @@ public class Course {
 	
 	//4. toString
 	public String toString() {
-		return cID + ": " + title + ", KP: " + creditPoints + ", pasniedz: " + professor;
+		return cID + ": " + title + ", KP: " + creditPoints + ",\tpasniedz: " + professor;
 	}
 	
 }
