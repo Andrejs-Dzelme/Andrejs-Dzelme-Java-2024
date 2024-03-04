@@ -66,7 +66,7 @@ public class Grade {
 	
 	//4. toString
 	public String toString() {
-		return gID + ": " + student + ", GR: " + value + ", Kurss: " + course;
+		return student + ",\tGR: " + value + ",\tKurss: " + course;
 	}
 	
 	
