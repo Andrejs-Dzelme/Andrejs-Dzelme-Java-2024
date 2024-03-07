@@ -28,7 +28,7 @@ public class Course {
 		counter++;
 	}
 	public void setTitle(String title) {
-		if(title != null && title.matches("[A-ZĒŪĪĻĶĢĀŽŠŅ a-zēūīļķāžšņ 0-9]+")) {
+		if(title != null && title.matches("[A-ZĒŪĪČĻĶĢĀŽŠŅ a-zēūčīļķāžšņ 0-9]+")) {
 			this.title = title;
 		}
 		else
