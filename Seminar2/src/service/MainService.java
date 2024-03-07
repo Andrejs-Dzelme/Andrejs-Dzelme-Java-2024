@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import Model.Course;
 import Model.Degree;
@@ -84,11 +85,12 @@ public class MainService {
 			System.out.println(calculateAVGgradeInCourse(c2));
 			System.out.print(pr2+" kursu skaits: ");
 			System.out.println(calculateCoursesByProfessor(pr2));
+			sortStudentsByAVG(st2, st3);
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
-
+		
 		
 	}
 	
@@ -172,9 +174,28 @@ public class MainService {
 		return howMany;
 	}
 	
-	/*public static void sortStudentsByAVG(Student student) throws Exception {
-		if(student == null) throw new Exception("No enough students to sort.");
+	public static void sortStudentsByAVG(Student ... students) throws Exception{
+		if(students == null) throw new Exception("No enough students to sort.");
+		int StCount = -1;
+		for(Student tempSt: allStudents){
+				tempSt.getStudent();
+				StCount++;		
+		}
 		
-	}*/
+		double[] Grades = new double[StCount];
+		for (int i = 0; i < StCount; i++) {
+			float sum = 0;
+			int howMany = 0;
+			for(Grade tempGr : allGrades) {
+				if(tempGr.getStudent().equals(students[i])) {
+					sum = sum + tempGr.getValue();
+					howMany++;
+				}
+			}
+			Grades[i] = sum/howMany;
+		}
+		Arrays.sort(Grades);
+		System.out.println(Arrays.toString(Grades));
+	}
 	
 }
