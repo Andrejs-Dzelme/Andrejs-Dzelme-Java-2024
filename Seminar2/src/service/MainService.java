@@ -10,7 +10,7 @@ import Model.Student;
 
 public class MainService {
 
-	private static ArrayList<Professor> allProfessors = new ArrayList<Professor>();
+	private static ArrayList<Professor> allProfessors = new ArrayList<Professor>(); //Sarakstam, atšķirībā no masīva nav jānosaka rezervējamo šūnu skaits.
 	private static ArrayList<Student> allStudents =  new ArrayList<Student>();
 	private static ArrayList<Course> allCourses = new ArrayList<Course>();
 	private static ArrayList<Grade> allGrades = new ArrayList<Grade>();
@@ -89,8 +89,7 @@ public class MainService {
 		
 		float sum = 0;
 		int howMany = 0;
-		
-		
+				
 		for(Grade tempGr : allGrades) {
 			if(tempGr.getStudent().equals(student)) {
 				sum = sum + tempGr.getValue();
@@ -109,8 +108,7 @@ public class MainService {
 		
 		float sum = 0;
 		int howManyCP = 0;
-		
-		
+				
 		for(Grade tempGr : allGrades) {
 			if(tempGr.getStudent().equals(student)) {
 				sum = sum + tempGr.getValue()*tempGr.getCourse().getCreditPoints();
