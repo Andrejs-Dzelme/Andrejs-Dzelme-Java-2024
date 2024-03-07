@@ -66,6 +66,10 @@ public class Student {
 	//4. toString
 	public String toString() {
 		return sID + ": " + name + " " + surname + " " + personal_number;
+	}
+	public Object getStudent() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 	
