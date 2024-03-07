@@ -40,18 +40,20 @@ public class MainService {
 		
 		Course c1 = new Course();
 		Course c2 = new Course("Augstfrekvenču sistēmas", 2, pr2);
+		Course c3 = new Course("Signālu teorija", 4, pr2);
 		allCourses.add(c1);
 		allCourses.add(c2);
+		allCourses.add(c3);
 		for(Course tempC : allCourses) {
 			System.out.println(tempC);
 		}
-		System.out.println();
 		
 		Grade gr1 = new Grade();
 		Grade gr2 = new Grade(5, st2, c1);
 		Grade gr3 = new Grade(6, st2, c2);
 		Grade gr4 = new Grade(9, st3, c1);
 		Grade gr5 = new Grade(10, st3, c2);
+		Grade gr6 = new Grade(6, st3, c3);
 		System.out.println();
 	
 		allGrades.add(gr1);
@@ -59,22 +61,34 @@ public class MainService {
 		allGrades.add(gr3);
 		allGrades.add(gr4);
 		allGrades.add(gr5);
+		allGrades.add(gr6);
 		
 		for(Grade tempGr : allGrades) {
 			System.out.println(tempGr);
 		}
 		
+		System.out.println();
 		try
 		{
-		
+			System.out.print(st2+": ");
 			System.out.println(calculateAVGgrade(st2));
+			System.out.print(st2+": ");
 			System.out.println(calculateAVGweightedGrade(st2));
+			System.out.print(st3+": ");
 			System.out.println(calculateAVGgrade(st3));
+			System.out.print(st3+": ");
 			System.out.println(calculateAVGweightedGrade(st3));
+			System.out.print("Visi studenti: ");
+			System.out.println(calculateAVGgradeByStudent(st2));
+			System.out.print("Vidējā atzīme par kursu: ");
+			System.out.println(calculateAVGgradeInCourse(c2));
+			System.out.print(pr2+" kursu skaits: ");
+			System.out.println(calculateCoursesByProfessor(pr2));
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
+
 		
 	}
 	
@@ -85,7 +99,7 @@ public class MainService {
 	//->sum/6KP
 	
 	public static float calculateAVGgrade(Student student) throws Exception {
-		if(student == null) throw new Exception("Problems with input student");
+		if(student == null) throw new Exception("Problems with input student.");
 		
 		float sum = 0;
 		int howMany = 0;
@@ -96,15 +110,14 @@ public class MainService {
 				howMany++;
 			}
 		}
-		if(howMany == 0) throw new Exception("There are no course");
+		if(howMany == 0) throw new Exception("There are no course.");
 		
 		return sum/howMany;
 		
 	}
-	
-	
+		
 	public static float calculateAVGweightedGrade(Student student) throws Exception {
-		if(student == null) throw new Exception("Problems with input student");
+		if(student == null) throw new Exception("Problems with input student.");
 		
 		float sum = 0;
 		int howManyCP = 0;
@@ -115,10 +128,50 @@ public class MainService {
 				howManyCP = howManyCP + tempGr.getCourse().getCreditPoints();
 			}
 		}
-		if(howManyCP == 0) throw new Exception("There are no course");
+		if(howManyCP == 0) throw new Exception("There are no course.");
 		
 		return sum/howManyCP;
 		
 	}
 
+	public static float calculateAVGgradeByStudent(Student inputStudent) throws Exception{
+		if(inputStudent == null) throw new Exception("Problems with input arguments.");
+		float sum = 0;
+		int howMany = 0;
+		for(Grade tempGr : allGrades) {
+			sum = sum + tempGr.getValue();
+			howMany++;
+		}
+		if(howMany == 0) {return 0;}
+		return sum/howMany;
+	}
+	
+	public static float calculateAVGgradeInCourse(Course course) throws Exception{
+		if(course == null) throw new Exception("Problems with input arguments.");
+		float sum = 0;
+		int howMany = 0;
+		for(Grade tempGr : allGrades) {
+			if(tempGr.getCourse().equals(course)) {
+				sum = sum + tempGr.getValue();
+				howMany++;
+			}
+		}
+		if(howMany == 0) {return 0;}
+		return sum/howMany;
+	}
+	
+	public static float calculateCoursesByProfessor(Professor professor) throws Exception {
+		if(professor == null) throw new Exception("Problems with input arguments.");
+		int howMany = 0;
+		for(Course tempCr: allCourses) {
+			 if(tempCr.getProfessor().equals(professor)) {
+				 howMany++;
+			 }
+		}
+		if(howMany == 0) {return 0;}
+		return howMany;
+	}
+	
+
+	
 }
