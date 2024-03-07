@@ -28,8 +28,8 @@ public class MainService {
 		System.out.println();
 		
 		Student st1 = new Student();
-		Student st2 = new Student("Esmeralda", "Zaļā");
-		Student st3 = new Student("Pēteris", "Akmens");
+		Student st2 = new Student("Esmeralda", "Zaļā", "290204-12531");
+		Student st3 = new Student("Pēteris", "Akmens", "310405-12567");
 		allStudents.add(st1);
 		allStudents.add(st2);
 		allStudents.add(st3);
@@ -172,6 +172,9 @@ public class MainService {
 		return howMany;
 	}
 	
-
+	/*public static void sortStudentsByAVG(Student student) throws Exception {
+		if(student == null) throw new Exception("No enough students to sort.");
+		
+	}*/
 	
 }
