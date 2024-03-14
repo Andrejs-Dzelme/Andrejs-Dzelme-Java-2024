@@ -71,7 +71,7 @@ public class Post {
 	
 	//4.toString
 	public String toString() {
-		return title + "(" + dateTime + ")\n\n" + msg + "\n\n[" + countOfLikes + "]\n";
+		return title + " (" + dateTime + ")\n\n" + msg + "\n\n[" + countOfLikes + "]\n";
 	}
 	
 	//5.other functions
