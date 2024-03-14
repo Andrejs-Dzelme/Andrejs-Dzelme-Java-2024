@@ -81,9 +81,10 @@ public class MainService {
 			System.out.println(calculateAVGweightedGrade(st3));
 			System.out.print("Visi studenti: ");
 			System.out.println(calculateAVGgradeByStudent(st2));
-			System.out.print("Vidējā atzīme par kursu: ");
+			System.out.print("Vidējā atzīme par kursu: ");			
 			System.out.println(calculateAVGgradeInCourse(c2));
-			System.out.print(pr2+" kursu skaits: ");
+			System.out.print(pr2.getName() + " " + pr2.getSurname() + " - kursu skaits: "); 
+			//System.out.print(pr2+" kursu skaits: ");
 			System.out.println(calculateCoursesByProfessor(pr2));
 			sortStudentsByAVG(st2, st3);
 		}
@@ -162,15 +163,15 @@ public class MainService {
 		return sum/howMany;
 	}
 	
-	public static float calculateCoursesByProfessor(Professor professor) throws Exception {
+	public static int calculateCoursesByProfessor(Professor professor) throws Exception {
 		if(professor == null) throw new Exception("Problems with input arguments.");
 		int howMany = 0;
 		for(Course tempCr: allCourses) {
 			 if(tempCr.getProfessor().equals(professor)) {
-				 howMany++;
+				 howMany++; 
 			 }
 		}
-		if(howMany == 0) {return 0;}
+		//if(howMany == 0) {return 0;}
 		return howMany;
 	}
 	
