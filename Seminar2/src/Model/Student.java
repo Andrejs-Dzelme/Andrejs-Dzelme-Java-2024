@@ -15,7 +15,7 @@ public class Student {
 	public String getName(){
 		return name;
 	}
-	public String getSurame(){
+	public String getSurname(){
 		return surname;
 	}	
 	public void setsID() {
