@@ -71,13 +71,16 @@ public class MainService {
 		System.out.println();
 		try
 		{
-			System.out.print(st2+": ");
-			System.out.println(calculateAVGgrade(st2));
-			System.out.print(st2+": ");
+			Student tempSt = retrieveStudentByPersonalNumber("310405-12567");
+			
+			System.out.print(tempSt.getName()+" "+tempSt.getSurname()+": ");
+			System.out.println(calculateAVGgrade(tempSt));
+			System.out.println("___________________________________________");
+			System.out.print(st2.getName()+" "+st2.getSurname()+": ");
 			System.out.println(calculateAVGweightedGrade(st2));
-			System.out.print(st3+": ");
+			System.out.print(st3.getName()+" "+st3.getSurname()+": ");
 			System.out.println(calculateAVGgrade(st3));
-			System.out.print(st3+": ");
+			System.out.print(st3.getName()+" "+st3.getSurname()+": ");
 			System.out.println(calculateAVGweightedGrade(st3));
 			System.out.print("Visi studenti: ");
 			System.out.println(calculateAVGgradeByStudent(st2));
@@ -87,11 +90,19 @@ public class MainService {
 			//System.out.print(pr2+" kursu skaits: ");
 			System.out.println(calculateCoursesByProfessor(pr2));
 			sortStudentsByAVG(st2, st3);
+			
+			createNewStudent("Doloresa", "Sāpīte", "030405-12783");
+			createNewStudent("Pēteris", "Akmens", "310405-12987");
+			updateStudentByPersonalNumber("290204-12531", "Smaragde"); //Zaļā uz Smaragde
+						
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		
+		System.out.println();
+		for(Student tempSt: allStudents) {
+			System.out.println(tempSt);
+		}
 		
 	}
 	
@@ -199,4 +210,60 @@ public class MainService {
 		System.out.println(Arrays.toString(Grades));
 	}
 	
-}
+	//CRUD create - retrieve - update - delete
+	
+	//CREATE
+	public static void createNewStudent(String name, String surname, String personal_number) throws Exception{
+		if(name == null || surname == null || personal_number == null) {
+			throw new Exception("Problems with input arguments.");
+		}
+		
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonal_number().equals(personal_number)) {
+				throw new Exception(tempSt.getName() + " " + tempSt.getSurname() + " jau ir sistēmā.");
+			}
+		}
+		Student newStudent = new Student(name, surname, personal_number);
+		allStudents.add(newStudent);
+	}
+	
+	//RETRIEVE
+	public static Student retrieveStudentByPersonalNumber(String personal_number) throws Exception {
+		if(personal_number == null) {
+			throw new Exception("Problems with input arguments.");
+		}
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonal_number().equals(personal_number)) {
+				return tempSt;
+			}
+		}
+		throw new Exception("Students p/k " + personal_number + " nav reģistrēts sistēmā.");
+	}
+	
+	//UPDATE
+	public static void updateStudentByPersonalNumber(String personal_number, String newSurname) throws Exception{
+		if(personal_number == null || newSurname == null) {
+			throw new Exception("Problems with input arguments.");
+		}
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonal_number().equals(personal_number)) {
+				if(!tempSt.getSurname().equals(newSurname)) {
+					tempSt.setSurname(newSurname);
+				}
+				return;	
+			}
+		}
+		throw new Exception("Students p/k " + personal_number + " nav reģistrēts sistēmā.");
+		
+	}
+	
+}//END OF ALL.
+
+
+
+
+
+
+
+
+
