@@ -66,7 +66,7 @@ public class Grade {
 	
 	//4. toString
 	public String toString() {
-		return student + ",\tGR: " + value + ",\tKurss: " + course;
+		return student.getName() + " " + student.getSurname() + ",\tGR: " + value + ",\tKurss: " + course.getTitle();
 	}
 	
 	
