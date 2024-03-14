@@ -94,6 +94,7 @@ public class MainService {
 			createNewStudent("Doloresa", "Sāpīte", "030405-12783");
 			createNewStudent("Pēteris", "Akmens", "310405-12987");
 			updateStudentByPersonalNumber("290204-12531", "Smaragde"); //Zaļā uz Smaragde
+			deleteStudentByPersonalNumber("310405-12987");
 						
 		}
 		catch (Exception e) {
@@ -256,6 +257,21 @@ public class MainService {
 		throw new Exception("Students p/k " + personal_number + " nav reģistrēts sistēmā.");
 		
 	}
+
+	//DELETE
+	public static void deleteStudentByPersonalNumber(String personal_number) throws Exception{
+		if(personal_number == null) {
+			throw new Exception("Problems with input arguments.");
+		}
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonal_number().equals(personal_number)) {
+				allStudents.remove(tempSt);
+				return;
+			}
+		}
+		throw new Exception("Students p/k " + personal_number + " nav reģistrēts sistēmā.");
+	}
+	
 	
 }//END OF ALL.
 
