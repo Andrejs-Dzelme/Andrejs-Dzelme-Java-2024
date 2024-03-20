@@ -42,17 +42,19 @@ public class Parcel {
 	}
 	
 	//________________________________________________________________________
-	public void setOrderCreated(LocalDateTime orderCreated) {
+	public void setOrderCreated(LocalDateTime orderCreated) {//_________________Needs consultation
 		this.orderCreated = orderCreated;
 	}
-	public void setPlannedDelivery(LocalDateTime plannedDelivery) {
+	public void setPlannedDelivery(LocalDateTime plannedDelivery) {//_________________Needs consultation
 		this.plannedDelivery = plannedDelivery;
 	}
-	public void setParcelSize(ParcelSize parcelSize) {		
-		this.parcelSize = parcelSize;
-	}
-	
-	public void setPrice(float price) {
+	public void setParcelSize(ParcelSize parcelSize) {	
+		if(parcelSize != null)
+			this.parcelSize = parcelSize;
+		else
+			this.parcelSize = ParcelSize.XXL;
+	}	
+	public void setPrice(float price) {//_________________Needs consultation
 		if (price >= 2 && price <= 13) {
 			this.price = price;
 		}
@@ -67,9 +69,28 @@ public class Parcel {
 			this.isFragile = false;
 	}
 	public void setDriver(Driver driver) {
-		this.driver = driver;
+		if(driver!= null) {
+			this.driver = driver;
+		}
+		else
+			this.driver = new Driver();
 	}
 	
+	//3. Constructors
+	public Parcel() {//_________________Needs consultation
+//		setOrderCreated();
+//		setPlannedDelivery();
+		setParcelSize(ParcelSize.XXL);
+		setFragile(false);
+//		setDriver();
+	}	
+	public Parcel(ParcelSize parcelSize, boolean isFragile, Driver driver) {
+//		setOrderCreated();
+//		setPlannedDelivery();
+		setParcelSize(parcelSize);
+		setFragile(isFragile);
+		setDriver(driver);
+	}
 
 	
 	
