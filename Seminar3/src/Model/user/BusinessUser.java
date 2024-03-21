@@ -3,6 +3,7 @@ package Model.user;
 import java.util.ArrayList;
 
 import Model.Page;
+import Model.Post;
 import Model.PostType;
 
 public class BusinessUser extends RegisteredUser{
@@ -17,15 +18,15 @@ public class BusinessUser extends RegisteredUser{
 
 	//____________________________________________________
 	public void setVATNo(String vATNo) {
-		if(vATNo != null && vATNo.matches("[A-Z]{2}[0-9]{11}"))
-			vATNo = vATNo;
+		if(vATNo != null && vATNo.matches("[A-Z]{2}[0-9]{11}"))//LV90000362426
+			VATNo = vATNo;
 		else
-			VATNo = "_____________";
+			VATNo =  "------------";
 	}
 
 	@Override
 	public void setNameAndSurnameOrTitle(String nameAndSurnameOrTitle) {
-		if(nameAndSurnameOrTitle != null && nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,20} [A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,30}")) {
+		if(nameAndSurnameOrTitle != null && nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀŽČŅa-zēūīļķģšāžčņ0-9.,:'@&%+= ]{2,40}")) {
 			super.nameAndSurnameOrTitle = nameAndSurnameOrTitle;
 		}
 		else
@@ -62,13 +63,34 @@ public class BusinessUser extends RegisteredUser{
 		allUserPages.add(newPage);
 	}
 	
-	public void publishPostPage(String postTitle, String msg, String pageTitle) {
+	public void publishPostPage(String postTitle, String msg, 
+			String pageTitle, PostType type) throws Exception{
+		//TODO ja nepieciešams, pārbauda ievades parametrus uz not null		
+		for(Page tempP: allUserPages) {
+			if(tempP.getTitle().toLowerCase().equals(pageTitle.toLowerCase())) {
+				Post newPost = publishPost(postTitle, msg, type);
+				if(type.equals(PostType.privatePost))
+					tempP.getPrivatePosts().add(newPost);
+				else if(type.equals(PostType.publicPost))
+					tempP.getPublicPosts().add(newPost);
+				
+				return;
+			}
+		}
 		
+		throw new Exception("Page not found");		
 	}
 	
 	@Override
-	public void publishPost(String title, String msg, PostType type) throws Exception {
-		// TODO Auto-generated method stub
+	public Post publishPost(String title, String msg, PostType type) throws Exception {
+		//TODO ja nepieciešams, pārbauda ievades parametrus uz not null
+		Post newPost = new Post(title, msg);
+		return newPost;
 		
 	}
+	
+	
+	
+	
 }
+
