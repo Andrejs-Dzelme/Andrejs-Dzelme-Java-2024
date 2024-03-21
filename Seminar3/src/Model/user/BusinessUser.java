@@ -22,15 +22,6 @@ public class BusinessUser extends RegisteredUser{
 		else
 			VATNo = "_____________";
 	}
-	
-	
-	
-
-	@Override
-	public void publishPost(String title, String msg, PostType type) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setNameAndSurnameOrTitle(String nameAndSurnameOrTitle) {
@@ -60,4 +51,24 @@ public class BusinessUser extends RegisteredUser{
 		return super.toString() + "[VAT No: ]" + VATNo;
 	}
 	
+	//5. other functions
+	public void addPage(String title, String description) throws Exception{
+		for(Page tempP: allUserPages) {
+			if(tempP.getTitle().toLowerCase().equals(title.toLowerCase())) {
+				throw new Exception("Page already exists.");
+			}
+		}
+		Page newPage = new Page(title, description);
+		allUserPages.add(newPage);
+	}
+	
+	public void publishPostPage(String postTitle, String msg, String pageTitle) {
+		
+	}
+	
+	@Override
+	public void publishPost(String title, String msg, PostType type) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }
