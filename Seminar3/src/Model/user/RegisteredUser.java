@@ -32,7 +32,7 @@ public abstract class RegisteredUser extends GuestUser implements IPostService{
 		return password;
 	}
 	public void setPassword(String inputPassword) {
-		if (inputPassword != null && inputPassword.matches("[A-Z0-9]")) {
+		if (inputPassword != null && inputPassword.matches("[A-Za-z0-9]")) {
 			try {
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				md.update(inputPassword.getBytes());
