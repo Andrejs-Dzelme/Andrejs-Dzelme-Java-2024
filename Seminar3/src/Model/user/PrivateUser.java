@@ -29,7 +29,7 @@ public class PrivateUser extends RegisteredUser{
 	@Override
 	public void setNameAndSurnameOrTitle(String nameAndSurnameOrTitle) {
 		if(nameAndSurnameOrTitle != null && 
-nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,20} [A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,30}"))
+				nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,20} [A-ZĒŪĪĻĶĢŠĀŽČŅ]{1}[a-zēūīļķģšāžčņ]{2,30}"))
 			super.nameAndSurnameOrTitle = nameAndSurnameOrTitle;
 		else
 			super.nameAndSurnameOrTitle = "---------";
