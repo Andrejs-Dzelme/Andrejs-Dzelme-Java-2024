@@ -27,7 +27,7 @@ public class Post {
 		return msg;
 	}
 	public void setMsg(String msg) {
-		if(title != null && title.length() >= 5 && title.length() <= 1000)
+		if(msg != null && msg.length() >= 5 && msg.length() <= 1000)
 			this.msg = msg;
 		else
 			this.msg = "Nav ziņu.";
