@@ -42,10 +42,11 @@ public class Parcel {
 	}
 	
 	//________________________________________________________________________
-	public void setOrderCreated(LocalDateTime orderCreated) {//_________________Needs consultation
-		this.orderCreated = orderCreated;
+	public void setOrderCreated() {
+		this.orderCreated = LocalDateTime.now();
 	}
-	public void setPlannedDelivery(LocalDateTime plannedDelivery) {//_________________Needs consultation
+	public void setPlannedDelivery(LocalDateTime plannedDelivery) {//___________________________improve!
+		plannedDelivery.isAfter(LocalDateTime.now().plusDays(1));
 		this.plannedDelivery = plannedDelivery;
 	}
 	public void setParcelSize(ParcelSize parcelSize) {	
@@ -54,12 +55,28 @@ public class Parcel {
 		else
 			this.parcelSize = ParcelSize.XXL;
 	}	
-	public void setPrice(float price) {//_________________Needs consultation
-		if (price >= 2 && price <= 13) {
-			this.price = price;
-		}
-		else
-			this.price = 13;
+	public void setPrice() {
+		if (parcelSize == ParcelSize.S)
+			this.price = (float) (1.99);
+		else if (parcelSize == ParcelSize.M)
+			this.price = (float) (1.99*2);
+		else if (parcelSize == ParcelSize.L)
+			this.price = (float) (1.99*3);
+		else if (parcelSize == ParcelSize.XL)
+			this.price = (float) (1.99*4);
+		else if (parcelSize == ParcelSize.XXL)
+			this.price = (float) (1.99*5);
+		
+		if (parcelSize == ParcelSize.S && isFragile)
+			this.price = (float) (1.99+2.99);
+		else if (parcelSize == ParcelSize.M && isFragile)
+			this.price = (float) (1.99*2+2.99);
+		else if (parcelSize == ParcelSize.L && isFragile)
+			this.price = (float) (1.99*3+2.99);
+		else if (parcelSize == ParcelSize.XL && isFragile)
+			this.price = (float) (1.99*4+2.99);
+		else if (parcelSize == ParcelSize.XXL && isFragile)
+			this.price = (float) (1.99*5+2.99);
 	}	
 	public void setFragile(boolean isFragile) {
 		if (isFragile == true) {
@@ -77,20 +94,24 @@ public class Parcel {
 	}
 	
 	//3. Constructors
-	public Parcel() {//_________________Needs consultation
-//		setOrderCreated();
-//		setPlannedDelivery();
+	public Parcel() {
+		setPlannedDelivery(plannedDelivery);
 		setParcelSize(ParcelSize.XXL);
 		setFragile(false);
-//		setDriver();
+		setDriver(new Driver());
 	}	
-	public Parcel(ParcelSize parcelSize, boolean isFragile, Driver driver) {
-//		setOrderCreated();
-//		setPlannedDelivery();
+	public Parcel(ParcelSize parcelSize, boolean isFragile, Driver driver, LocalDateTime plannedDelivery) {
+		setPlannedDelivery(plannedDelivery);
 		setParcelSize(parcelSize);
 		setFragile(isFragile);
 		setDriver(driver);
 	}
+	
+	//4. toString
+	public String toString() {
+		return "Parcel "+parcelSize+" will arrive until "+plannedDelivery+".";
+	}
+	
 
 	
 	
