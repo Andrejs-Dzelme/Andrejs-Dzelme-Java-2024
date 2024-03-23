@@ -111,9 +111,5 @@ public class Parcel {
 	public String toString() {
 		return "Parcel "+parcelSize+" will arrive until "+plannedDelivery+".";
 	}
-	
-
-	
-	
-	
+		
 }
