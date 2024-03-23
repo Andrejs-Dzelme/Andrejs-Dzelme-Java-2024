@@ -8,6 +8,27 @@ neeksistē pircēja paciņu sarakstā (1 punkts); */
 
 package Model;
 
+import java.util.ArrayList;
+
 public abstract class AbstractCustomer {
+	//1. variables
+	private long cID;
+	private static long counter = 0;
+	private Address address;
+	private String phoneNo;
+	private static ArrayList<Parcel> allParcels = new ArrayList<Parcel>();
+	protected String customerCode;
+
+
+	//2. gets and sets
+	public long getcID() {
+		return cID;
+	}
+	public void setcID(long cID) {
+		cID = counter;
+		counter++;
+	}
+	
+	
 
 }
