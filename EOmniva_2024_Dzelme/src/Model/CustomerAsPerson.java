@@ -35,6 +35,7 @@ public class CustomerAsPerson extends Person{
 	
 	//3. Constructors
 	public CustomerAsPerson() {
+		super();
 		setAddress(new Address());
 		setPhone(phone.toString());
 	}	
@@ -46,7 +47,7 @@ public class CustomerAsPerson extends Person{
 	
 	//4. toString
 	public String toString() {
-		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+address+"; Phoine: "+phone;
+		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+address+"; Phone: "+phone;
 	}
 	
 	public void setCustomerCode() {//___________________________________Finalize!
