@@ -62,7 +62,7 @@ public abstract class AbstractCustomer extends Person{
 		AbstractCustomer.parcels = parcels;
 	}
 	public void setCustomerCode(String customerCode) {//_________________Consultation needed.
-		this.customerCode = cID+"_Person_" +super.getPersonal_number();
+		this.customerCode = cID+"_Person_"+super.getPersonal_number();
 	}	
 
 	//3. Constructors
