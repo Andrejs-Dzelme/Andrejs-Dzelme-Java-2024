@@ -5,6 +5,7 @@ public class CustomerAsPerson extends Person{
 	private Address address;
 	private String phone;
 	private String  customerCode;
+	private AbstractCustomer cID;
 
 	//2. gets and sets
 	public Address getAddress() {
@@ -51,7 +52,7 @@ public class CustomerAsPerson extends Person{
 	}
 	
 	public void setCustomerCode() {//___________________________________Finalize!
-		this.customerCode = "_" +super.getPersonal_number();
+		this.customerCode = cID+"_Person_"+super.getPersonal_number();
 	}
 
 	/*
