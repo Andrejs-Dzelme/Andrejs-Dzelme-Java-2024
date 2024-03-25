@@ -112,4 +112,5 @@ public class Parcel {
 		return "Parcel "+parcelSize+" will arrive until "+plannedDelivery+".";
 	}
 		
+	
 }
