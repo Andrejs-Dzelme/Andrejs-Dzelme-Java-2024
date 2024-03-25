@@ -8,7 +8,6 @@ neeksistē pircēja paciņu sarakstā (1 punkts); */
 
 package Model;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class AbstractCustomer extends Person{
@@ -18,9 +17,6 @@ public abstract class AbstractCustomer extends Person{
 	private static long counter = 0;
 	private Address address;
 	private String phoneNo;
-	private static Parcel isFragile, plannedDelivery;
-	private static Driver driver;
-	private static ParcelSize parcelSize;
 	private static ArrayList<Parcel> parcels = new ArrayList<Parcel>();
 	protected String customerCode;
 	public abstract void setCustomerCode();//__________________!!!
