@@ -8,6 +8,7 @@ neeksistē pircēja paciņu sarakstā (1 punkts); */
 
 package Model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class AbstractCustomer extends Person{
@@ -17,6 +18,9 @@ public abstract class AbstractCustomer extends Person{
 	private static long counter = 0;
 	private Address address;
 	private String phoneNo;
+	private static Parcel isFragile, plannedDelivery;
+	private static Driver driver;
+	private static ParcelSize parcelSize;
 	private static ArrayList<Parcel> parcels = new ArrayList<Parcel>();
 	protected String customerCode;
 	public abstract void setCustomerCode();//__________________!!!
@@ -88,5 +92,29 @@ public abstract class AbstractCustomer extends Person{
 
 	//iii. Izveidot addNewParcel funkciju, kas ļauj pievienot paciņu pircējam. Šeit noteikti jāpārbauda, vai tāda paciņa jau
 	//neeksistē pircēja paciņu sarakstā (1 punkts); */
+	public static void createNewParcel(ParcelSize parcelSize, Parcel isFragile, Driver driver, Parcel plannedDelivery, String customerCode) throws Exception{
+		
+		if(customerCode != null && parcels != null) {//_______________________________Consultation needed!
+			throw new Exception("This customer already has made an order.");
+		}
+
+		/*for(Parcel tempPr: parcels) {
+			if(tempPr.getPersonal_number().equals(personal_number)) {
+				throw new Exception(tempPr.getName() + " " + tempPr.getSurname() + " jau ir sistēmā.");
+			}
+		}*/
+		
+		Parcel newParcel = new Parcel();
+		parcels.add(newParcel);
+		//allStudents.add(newStudent);
+		/*
+
+		Student newStudent = new Student(name, surname, personal_number);
+		allStudents.add(newStudent);
+	}
+		 */
+		
+		
+	}
 	
 }
