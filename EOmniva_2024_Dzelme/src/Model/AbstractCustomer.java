@@ -106,12 +106,10 @@ public abstract class AbstractCustomer extends Person{
 		
 		Parcel newParcel = new Parcel();
 		parcels.add(newParcel);
-		//allStudents.add(newStudent);
 		/*
 
 		Student newStudent = new Student(name, surname, personal_number);
 		allStudents.add(newStudent);
-	}
 		 */
 		
 		
