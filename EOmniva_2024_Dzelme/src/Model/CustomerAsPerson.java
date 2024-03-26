@@ -51,13 +51,9 @@ public class CustomerAsPerson extends Person{
 		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+address+"; Phone: "+phone;
 	}
 	
+	//5. other functions
 	public void setCustomerCode() {
 		this.customerCode = cID+"_Person_"+super.getPersonal_number();
 	}
 
-	/*
-	 Pārrakstīt setCustomerCode funkciju, lai customerCode uzstādīšana notiktu pēc sekojošas shēmas:
-		<pircēja ID>_person_<personCode> . Piemēram, cilvēkam ar personas kodu 121212-12345 customerCode vajadzētu
-		uzstādīt uz “2_person_121212-12345” (1 punkts);
-	 */
 }
