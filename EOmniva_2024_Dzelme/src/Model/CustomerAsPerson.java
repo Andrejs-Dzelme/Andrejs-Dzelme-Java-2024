@@ -51,7 +51,7 @@ public class CustomerAsPerson extends Person{
 		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+address+"; Phone: "+phone;
 	}
 	
-	public void setCustomerCode() {//___________________________________Finalize!
+	public void setCustomerCode() {
 		this.customerCode = cID+"_Person_"+super.getPersonal_number();
 	}
 
