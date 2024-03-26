@@ -1,21 +1,13 @@
 package Model;
 
-public class CustomerAsCompany{
+public class CustomerAsCompany extends AbstractCustomer{
 	//1. Variables
-	private Address address;
-	private String phone;
 	private String  customerCode;
 	private String title;
 	private String companyRegNo;
-	private AbstractCustomer cID;
+	//private AbstractCustomer cID;
 
 	//2. gets and sets
-	public Address getAddress() {
-		return address;
-	}
-	public String getPhone() {
-		return phone;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -23,21 +15,6 @@ public class CustomerAsCompany{
 		return companyRegNo;
 	}
 	//________________________________________________________
-	public void setAddress(Address address) {
-		if(address != null) {
-			this.address = address;
-		}
-		else
-			this.address = new Address();
-	}
-	public void setPhone(String phone) {
-		if(phone != null && phone.matches("[+0-9]{3}[ 0-9]+")) {
-			this.phone = phone;
-		}
-		else
-			this.phone = "+371 00000000";
-		this.phone = phone;
-	}
 	public String getCustomerCode() {
 		return customerCode;
 	}
@@ -56,31 +33,25 @@ public class CustomerAsCompany{
 			this.companyRegNo = "Incorrect";
 	}
 	//3. Constructors
-	public CustomerAsCompany() {//___________________________Is that correct?		
-		setAddress(new Address());
-		setPhone(phone.toString());
-		setTitle(title.toString());
-		setCompanyRegNo(companyRegNo.toString());
+	public CustomerAsCompany() {	
+		super();
+		setTitle(title.toString());//paliek
+		setCompanyRegNo(companyRegNo.toString());//paliek
 	}	
-	public CustomerAsCompany(Address address, String phone, String title, String companyRegNo) {		
-		setAddress(address);
-		setPhone(phone);
+	public CustomerAsCompany(Address address, String phoneNo, String title, String companyRegNo) {		
+		super(address, phoneNo);
 		setTitle(title);
 		setCompanyRegNo(companyRegNo);
 	}
 	
 	//4. toString
 	public String toString() {
-		return title+", Reg. nr.: "+companyRegNo+", Phone: "+phone;
+		return title+", Reg. nr.: "+companyRegNo+", Phone: "+super.getPhoneNo();
 	}
 	
+	//5. other functions
 	public void setCustomerCode() {
-		this.customerCode = cID+"_Company_"+customerCode;
+		this.customerCode = super.getcID()+"_Company_"+customerCode;
 	}
 
-	/*
-	 Pārrakstīt setCustomerCode funkciju, lai customerCode uzstādīšana notiktu pēc sekojošas shēmas:
-		<pircēja ID>_person_<personCode> . Piemēram, cilvēkam ar personas kodu 121212-12345 customerCode vajadzētu
-		uzstādīt uz “2_person_121212-12345” (1 punkts);
-	 */
 }
