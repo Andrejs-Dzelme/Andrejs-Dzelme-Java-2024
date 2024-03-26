@@ -17,9 +17,9 @@ public abstract class AbstractCustomer extends Person{
 	private static long counter = 0;
 	private Address address;
 	private String phoneNo;
-	private static ArrayList<Parcel> parcels = new ArrayList<Parcel>();
+	private ArrayList<Parcel> parcels = new ArrayList<Parcel>();
 	protected String customerCode;
-	public abstract void setCustomerCode();//__________________!!!
+	public abstract void setCustomerCode();
 
 
 	//2. gets and sets
@@ -32,7 +32,7 @@ public abstract class AbstractCustomer extends Person{
 	public String getPhoneNo() {
 		return phoneNo;
 	}
-	public static ArrayList<Parcel> getParcels() {
+	public  ArrayList<Parcel> getParcels() {
 		return parcels;
 	}
 	public String getCustomerCode() {
@@ -58,12 +58,13 @@ public abstract class AbstractCustomer extends Person{
 		else
 			this.phoneNo = "+371 00000000";
 	}
-	public static void setParcels(ArrayList<Parcel> parcels) {//_________________Consultation needed.
-		AbstractCustomer.parcels = parcels;
+	public void setParcels(ArrayList<Parcel> parcels) {
+		if (this.parcels != null) {
+			this.parcels = parcels;
+		}
+		else
+			this.parcels = new ArrayList<Parcel>();
 	}
-	public void setCustomerCode(String customerCode) {//_________________Consultation needed.
-		this.customerCode = cID+"_Person_"+super.getPersonal_number();
-	}	
 
 	//3. Constructors
 	public AbstractCustomer() {
@@ -86,29 +87,22 @@ public abstract class AbstractCustomer extends Person{
 		return "Customer: "+cID+", Address: "+address+"\nPhone: "+phoneNo+"\nCustomer code: "+customerCode;
 	}
 
-	//iii. Izveidot addNewParcel funkciju, kas ļauj pievienot paciņu pircējam. Šeit noteikti jāpārbauda, vai tāda paciņa jau
-	//neeksistē pircēja paciņu sarakstā (1 punkts); */
-	public static void createNewParcel(ParcelSize parcelSize, Parcel isFragile, Driver driver, Parcel plannedDelivery, String customerCode) throws Exception{
+	//5. other functions
+	public void createNewParcel(Parcel newParcel) throws Exception{
 		
-		if(customerCode != null && parcels != null) {//_______________________________Consultation needed!
-			throw new Exception("This customer already has made an order.");
-		}
-
-		/*for(Parcel tempPr: parcels) {
-			if(tempPr.getPersonal_number().equals(personal_number)) {
-				throw new Exception(tempPr.getName() + " " + tempPr.getSurname() + " jau ir sistēmā.");
+		if(newParcel != null) {//____Pārbaudīt visus paciņai esošos parametrus.
+			for(Parcel tempPc: parcels) {
+				if (tempPc.getParcelSize().equals(newParcel.getParcelSize()) && tempPc.getPlannedDelivery().equals(newParcel.getPlannedDelivery()) &&
+						tempPc.getDriver().equals(newParcel.getDriver())) {//Skatīt vai iespējams vēl kādus nosacījumus pievienot.
+					throw new Exception("This customer already has made an order.");
+				}
 			}
-		}*/
-		
-		Parcel newParcel = new Parcel();
-		parcels.add(newParcel);
-		/*
-
-		Student newStudent = new Student(name, surname, personal_number);
-		allStudents.add(newStudent);
-		 */
-		
-		
+			parcels.add(newParcel);			
+		}
+		else
+			throw new Exception ("No package saved.");
 	}
+
+	
 	
 }
