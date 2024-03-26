@@ -75,7 +75,7 @@ public class CustomerAsCompany{
 	}
 	
 	public void setCustomerCode() {
-		this.customerCode = cID+"_Company_"+customerCode;//_______________________to improve!
+		this.customerCode = cID+"_Company_"+customerCode;
 	}
 
 	/*
