@@ -5,7 +5,6 @@ public class CustomerAsCompany{
 	private Address address;
 	private String phone;
 	private String  customerCode;
-	private AbstractCustomer cID;
 	private String title;
 	private String companyRegNo;
 
@@ -70,13 +69,13 @@ public class CustomerAsCompany{
 	}
 	
 	//4. toString
-	/*public String toString() {
-		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+address+"; Phone: "+phone;
+	public String toString() {
+		return title+", Reg. nr.: "+companyRegNo+", Phone: "+phone;
 	}
 	
 	public void setCustomerCode() {
-		this.customerCode = cID+"_Company_"+super.getPersonal_number();
-	}*/
+		this.customerCode = "_Company_"+customerCode;//_______________________to improve!
+	}
 
 	/*
 	 Pārrakstīt setCustomerCode funkciju, lai customerCode uzstādīšana notiktu pēc sekojošas shēmas:
