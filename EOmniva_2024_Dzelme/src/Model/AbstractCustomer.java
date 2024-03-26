@@ -21,7 +21,6 @@ public abstract class AbstractCustomer extends Person{
 	protected String customerCode;
 	public abstract void setCustomerCode();
 
-
 	//2. gets and sets
 	public long getcID() {
 		return cID;
@@ -38,7 +37,6 @@ public abstract class AbstractCustomer extends Person{
 	public String getCustomerCode() {
 		return customerCode;
 	}
-
 	//_______________________________________________
 	public void setcID() {
 		cID = counter;
