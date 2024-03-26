@@ -7,6 +7,7 @@ public class CustomerAsCompany{
 	private String  customerCode;
 	private String title;
 	private String companyRegNo;
+	private AbstractCustomer cID;
 
 	//2. gets and sets
 	public Address getAddress() {
@@ -74,7 +75,7 @@ public class CustomerAsCompany{
 	}
 	
 	public void setCustomerCode() {
-		this.customerCode = "_Company_"+customerCode;//_______________________to improve!
+		this.customerCode = cID+"_Company_"+customerCode;//_______________________to improve!
 	}
 
 	/*
