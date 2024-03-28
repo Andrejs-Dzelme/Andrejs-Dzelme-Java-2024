@@ -5,7 +5,6 @@ public class CustomerAsCompany extends AbstractCustomer{
 	private String  customerCode;
 	private String title;
 	private String companyRegNo;
-	//private AbstractCustomer cID;
 
 	//2. gets and sets
 	public String getTitle() {
@@ -13,11 +12,11 @@ public class CustomerAsCompany extends AbstractCustomer{
 	}
 	public String getCompanyRegNo() {
 		return companyRegNo;
-	}
-	//________________________________________________________
+	}	
 	public String getCustomerCode() {
 		return customerCode;
 	}
+	//________________________________________________________
 	public void setTitle(String title) {
 		if(title != null) {
 			this.title = title;
@@ -35,8 +34,8 @@ public class CustomerAsCompany extends AbstractCustomer{
 	//3. Constructors
 	public CustomerAsCompany() {	
 		super();
-		setTitle(title.toString());//paliek
-		setCompanyRegNo(companyRegNo.toString());//paliek
+		setTitle("Nosaukums");
+		setCompanyRegNo("00000000");
 	}	
 	public CustomerAsCompany(Address address, String phoneNo, String title, String companyRegNo) {		
 		super(address, phoneNo);
@@ -46,12 +45,12 @@ public class CustomerAsCompany extends AbstractCustomer{
 	
 	//4. toString
 	public String toString() {
-		return title+", Reg. nr.: "+companyRegNo+", Phone: "+super.getPhoneNo();
+		return "\""+title+"\", Reg. nr.: "+companyRegNo+"\nAddress: "+super.getAddress()+", Phone: "+super.getPhoneNo()+"\n";
 	}
 	
 	//5. other functions
 	public void setCustomerCode() {
-		this.customerCode = super.getcID()+"_Company_"+customerCode;
+		this.customerCode = super.getcID()+"_Company_"+companyRegNo;
 	}
 
 }
