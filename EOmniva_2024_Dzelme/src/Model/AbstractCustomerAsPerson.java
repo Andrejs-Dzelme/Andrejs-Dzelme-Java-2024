@@ -2,21 +2,7 @@ package Model;
 
 public abstract class AbstractCustomerAsPerson extends AbstractCustomer{
 	//1. Variables
-	private Address address;
-	private String phone;
-	private String  customerCode;
 	protected Person person;
-
-	//2. gets and sets
-	public Address getAddress() {
-		return address;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public String getCustomerCode() {
-		return customerCode;
-	}
 	
 	//3. Constructors
 	public AbstractCustomerAsPerson() {
@@ -30,7 +16,7 @@ public abstract class AbstractCustomerAsPerson extends AbstractCustomer{
 	
 	//4. toString
 	public String toString() {
-		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nAddress nr."+super.getAddress()+"; Phone: "+super.getPhoneNo();
+		return person.getName()+" "+person.getSurname()+", P/K: "+person.getPersonal_number()+"\nAddress nr."+super.getAddress()+"; Phone: "+super.getPhoneNo();
 	}
 	
 }
