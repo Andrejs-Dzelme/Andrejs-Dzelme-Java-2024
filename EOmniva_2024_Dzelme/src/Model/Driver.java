@@ -45,7 +45,7 @@ public class Driver extends Person{
 	public Driver() {
 		super();
 		setdID();
-		setLicenseNo("AT896727");
+		setLicenseNo("AT000000");
 		setExperienceInYears(3); 		
 	}	
 
@@ -58,7 +58,7 @@ public class Driver extends Person{
 	
 	//4. toString
 	public String toString() {
-		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nLicense nr."+licenseNo+"; experience: "+experienceInYears+" years";
+		return super.getName()+" "+super.getSurname()+", P/K: "+super.getPersonal_number()+"\nLicense nr."+licenseNo+"; experience: "+experienceInYears+" years\n";
 	}
 	
 	
