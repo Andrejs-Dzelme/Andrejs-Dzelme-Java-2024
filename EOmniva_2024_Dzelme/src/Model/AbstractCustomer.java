@@ -68,7 +68,7 @@ public abstract class AbstractCustomer extends Person{
 	public AbstractCustomer() {
 		setcID();
 		setAddress(new Address());
-		setPhoneNo(phoneNo.toString());
+		setPhoneNo("+371 00000000");
 		setParcels(parcels);
 		setCustomerCode();		
 	}	
